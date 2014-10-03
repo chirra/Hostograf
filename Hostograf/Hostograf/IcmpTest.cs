@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Hostograf
 {
-    class Program
+    public class IcmpTest:ITestMethod
     {
-        static void Main(string[] args)
+
+        public void test()
         {
-            Host host = new Host(new IcmpTest());
-            host.TestExecute();
+            Console.WriteLine("ICMP Test");
         }
     }
 }
