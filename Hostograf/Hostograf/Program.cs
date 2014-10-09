@@ -10,8 +10,9 @@ namespace Hostograf
     {
         static void Main(string[] args)
         {
-            Host host = new Host(new IcmpTest());
-            host.TestExecute();
+            Host bbn = new Host("bbn.siamoil.ru", "BBN");
+            NetTest test = new NetTest("icmp", bbn);
+            test.TestExecute();
         }
     }
 }

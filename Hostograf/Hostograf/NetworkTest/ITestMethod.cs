@@ -9,6 +9,6 @@ namespace Hostograf
 {
     public interface ITestMethod
     {
-        void test();
+        void test(NetTest netTest);
     }
 }

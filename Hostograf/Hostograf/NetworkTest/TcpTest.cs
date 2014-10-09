@@ -9,7 +9,7 @@ namespace Hostograf
     public class TcpTest:ITestMethod
     {
 
-        public void test()
+        public void test(NetTest netTest)
         {
             Console.WriteLine("TCP Test");
         }

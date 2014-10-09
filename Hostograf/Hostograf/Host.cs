@@ -6,23 +6,18 @@ using System.Threading.Tasks;
 
 namespace Hostograf
 {
-    class Host
+    public class Host
     {
-        private ITestMethod _testMethod;
+        public string Hostname { get; set; }
+        public string Description { get; set; }
 
-        public Host(ITestMethod testMethod)
+        public Host(string Hostname, string Description)
         {
-            _testMethod = testMethod;
+            this.Hostname = Hostname;
+            this.Description = Description;
         }
 
-        public void SetTestMethod(ITestMethod testMethod)
-        {
-            _testMethod = testMethod;
-        }
+    }//class
 
-        public void TestExecute()
-        {
-            _testMethod.test();
-        }
-    }
-}
+ 
+}//namespace

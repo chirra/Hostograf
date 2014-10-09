@@ -9,9 +9,9 @@ namespace Hostograf
     public class IcmpTest:ITestMethod
     {
 
-        public void test()
+        public void test(NetTest netTest)
         {
-            Console.WriteLine("ICMP Test");
+            Console.WriteLine("{0} ICMP Test", netTest.Hostname);
         }
     }
 }
