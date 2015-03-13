@@ -1,0 +1,121 @@
+﻿<Window x:Class="PL.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:src="clr-namespace:Tester;assembly=Tester"
+        xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=System"
+        xmlns:pl="clr-namespace:PL"
+        xmlns:objectModel="clr-namespace:System.Collections.ObjectModel;assembly=System"
+        Title="MainWindow" Height="415" Width="607">
+
+
+    <Window.Resources>
+
+        <componentModel:BackgroundWorker
+      x:Key="backgroundWoker"
+      WorkerReportsProgress="True"
+      WorkerSupportsCancellation="True"
+      DoWork="BackgroundWorker_DoWork"
+      RunWorkerCompleted="BackgroundWorker_RunWorkerCompleted"
+      ProgressChanged="BackgroundWorker_ProgressChanged"
+      />
+        
+        <SolidColorBrush x:Key="MyBrush">#000000</SolidColorBrush>
+        <pl:BooleanToColorConverter x:Key="BooleanConverter"></pl:BooleanToColorConverter>
+        <pl:CheckedToColorConverter x:Key="CheckedConverter"></pl:CheckedToColorConverter>
+        
+        
+        <!-- Resource for TreeView trwHosts. Create and color nodes -->
+        <src:Host x:Key="HostList"/>
+        <HierarchicalDataTemplate DataType="{x:Type pl:ObservableHost}" ItemsSource="{Binding Path=ObservableTestCollection}">
+            <!--<TextBlock Text="{Binding Path=Description}" Foreground="{Binding Path=Enabled, Converter={StaticResource BooleanConverter}}">-->
+            <TextBlock Text="{Binding Path=Description}">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=ObservableEnabled}" Value="True">
+                            <Setter Property="TextBlock.Foreground" Value="Black"></Setter>
+                        </DataTrigger>
+                            <DataTrigger Binding="{Binding Path=ObservableEnabled}" Value="False">
+                                <Setter Property="TextBlock.Foreground" Value="BurlyWood"></Setter>
+                            </DataTrigger>
+
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </HierarchicalDataTemplate>
+        
+        <DataTemplate DataType="{x:Type src:TestFactory}">
+            <!--<TextBlock Text="{Binding Path=Name}"></TextBlock>-->
+            <!--<TextBlock Text="{Binding Path=Name}" Foreground="{Binding Path=Enabled, Converter={StaticResourceExtension BooleanConverter}}" Background="{Binding Path=CheckedNow, Converter={StaticResourceExtension CheckedConverter}}" ></TextBlock>-->
+            <TextBlock Text="{Binding Path=Name}" >
+                <!--<TextBlock Text="{Binding Path=Description}">-->
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                    <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=Enabled}" Value="False">
+                                <Setter Property="TextBlock.Foreground" Value="BurlyWood"></Setter>
+                            </DataTrigger>
+
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding Path=Enabled}" Value="true"></Condition>
+                                    <Condition Binding="{Binding Path=Pass}" Value="true"></Condition>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="TextBlock.Foreground" Value="Green"></Setter>
+                            </MultiDataTrigger>
+
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding Path=Enabled}" Value="true"></Condition>
+                                    <Condition Binding="{Binding Path=Pass}" Value="false"></Condition>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="TextBlock.Foreground" Value="Red"></Setter>
+                            </MultiDataTrigger> 
+
+                            <DataTrigger Binding="{Binding Path=CheckedNow}" Value="True">
+                                <Setter Property="TextBlock.Background" Value="Brown"></Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Path=CheckedNow}" Value="False">
+                                <Setter Property="TextBlock.Background" Value="Transparent"></Setter>
+                            </DataTrigger>
+
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </DataTemplate>
+
+    </Window.Resources>
+
+
+
+    <Grid Background="#FFDAB1B1">
+
+        <Grid HorizontalAlignment="Left" Height="356" Margin="10,10,0,0" VerticalAlignment="Top" Width="571" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35
+                               "/>
+                <RowDefinition/>
+                <RowDefinition Height="18"/>
+            </Grid.RowDefinitions>
+            <StatusBar x:Name="stBar" HorizontalAlignment="Left" Height="27" Margin="0,0,0,-9" Grid.Row="2" VerticalAlignment="Top" Width="571" Background="#FFB6CFC1">
+                <Label x:Name="lblStatus" Content="" Width="198" Height="27"/>
+            </StatusBar>
+            <Button x:Name="btnAddHost" Content="Add" HorizontalAlignment="Left" Height="32" Margin="0,3,0,0" VerticalAlignment="Top" Width="32" Click="btnAddHost_Click"/>
+            <Button x:Name="btnDeleteItem" Content="Delete" HorizontalAlignment="Left" Height="32" Margin="37,3,0,0" VerticalAlignment="Top" Width="32" Click="btnDeleteItem_Click"/>
+            <Button x:Name="btnStartStop" Content="StartStop" HorizontalAlignment="Left" Height="32" Margin="144,3,0,0" VerticalAlignment="Top" Width="32" Click="btnStartStop_Click"/>
+            <Button x:Name="btnEnabled" Content="Enabled" HorizontalAlignment="Left" Height="32" Margin="181,3,0,0" VerticalAlignment="Top" Width="32" Click="btnEnabled_Click"/>
+            <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Height="32" Margin="74,3,0,0" VerticalAlignment="Top" Width="32" Click="btnEdit_Click"/>
+            <TreeView x:Name="trwHosts" ItemsSource="{Binding Source={StaticResource HostList}}"  HorizontalAlignment="Left" Height="283" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="319" >
+                <!--<TreeView x:Name="trwHosts" HorizontalAlignment="Left" Height="139" Margin="49,119,0,0" Grid.Row="1" VerticalAlignment="Top" Width="176">-->
+
+
+
+
+            </TreeView>
+
+        </Grid>
+
+    </Grid>
+</Window>

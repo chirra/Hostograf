@@ -1,0 +1,12 @@
+﻿<Window x:Class="PL.AddICMPTestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add ICMP Test" Height="211" Width="233" Loaded="Window_Loaded" KeyDown="Window_KeyDown" ResizeMode="NoResize">
+    <Grid Margin="0,0,2,3">
+        <Label Content="IP Address or Hostname:" HorizontalAlignment="Left" Margin="21,22,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Height="23" Margin="61,48,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnOK" Content="OK" HorizontalAlignment="Left" Margin="21,115,0,0" VerticalAlignment="Top" Width="75" Click="btnOK_Click"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="106,115,0,0" VerticalAlignment="Top" Width="75" Click="btnCancel_Click"/>
+
+    </Grid>
+</Window>
