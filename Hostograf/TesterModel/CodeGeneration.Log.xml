@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 12.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/CodeGenLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2014-12-18T14:44:10" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2014-12-18T14:44:10" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2014-12-18T14:44:10" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2014-12-18T14:44:10" Importance="Diagnostic" Text="ProjectPath = ..\TesterModelLib\TesterModelLib.csproj" />
+  <Message Timestamp="2014-12-18T14:44:10" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2014-12-18T14:44:10" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2014-12-18T14:44:10" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2014-12-18T14:44:10" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2014-12-18T14:44:10" Importance="Medium" Text="TesterModel's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'TesterModel::Tester::Host' -  (Class), 'TesterModel::Tester::TestAbstractFactory' -  (Class), 'TesterModel::Tester::TestFactory_ICMP' -  (Class), 'TesterModel::Tester::TestFactory_TCP' -  (Class), 'TesterModel::Tester::TestProduct_ICMP' -  (Class), 'TesterModel::Tester::TestProduct_TCP' -  (Class) " />
+  <Message Timestamp="2014-12-18T14:44:11" Importance="Medium" Text="'TesterModel::Tester::Host' -  (Class) : success (file created) - C:\.vstudio\Hostograf\Hostograf\TesterModelLib\GeneratedCode\Tester\Host.cs" />
+  <Message Timestamp="2014-12-18T14:44:11" Importance="Medium" Text="'TesterModel::Tester::TestAbstractFactory' -  (Class) : success (file created) - C:\.vstudio\Hostograf\Hostograf\TesterModelLib\GeneratedCode\Tester\TestAbstractFactory.cs" />
+  <Message Timestamp="2014-12-18T14:44:11" Importance="Medium" Text="'TesterModel::Tester::TestFactory_ICMP' -  (Class) : success (file created) - C:\.vstudio\Hostograf\Hostograf\TesterModelLib\GeneratedCode\Tester\TestFactory_ICMP.cs" />
+  <Message Timestamp="2014-12-18T14:44:11" Importance="Medium" Text="'TesterModel::Tester::TestFactory_TCP' -  (Class) : success (file created) - C:\.vstudio\Hostograf\Hostograf\TesterModelLib\GeneratedCode\Tester\TestFactory_TCP.cs" />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Medium" Text="'TesterModel::Tester::TestProduct_ICMP' -  (Class) : success (file created) - C:\.vstudio\Hostograf\Hostograf\TesterModelLib\GeneratedCode\Tester\TestProduct_ICMP.cs" />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Medium" Text="'TesterModel::Tester::TestProduct_TCP' -  (Class) : success (file created) - C:\.vstudio\Hostograf\Hostograf\TesterModelLib\GeneratedCode\Tester\TestProduct_TCP.cs" />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="Name = InterfaceTemplate" />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="ProjectPath = ..\TesterModelLib\TesterModelLib.csproj" />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4" />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4" />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Medium" Text="TesterModel's Text Template Binding: 'InterfaceTemplate' will apply InterfaceTemplate.t4 to: 'TesterModel::Tester::ITestProduct' -  (Interface) " />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Medium" Text="'TesterModel::Tester::ITestProduct' -  (Interface) : success (file created) - C:\.vstudio\Hostograf\Hostograf\TesterModelLib\GeneratedCode\Tester\ITestProduct.cs" />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="ProjectPath = ..\TesterModelLib\TesterModelLib.csproj" />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Medium" Text="TesterModel's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'TesterModel::Tester::Host' -  (Class), 'TesterModel::Tester::TestAbstractFactory' -  (Class), 'TesterModel::Tester::TestFactory_ICMP' -  (Class), 'TesterModel::Tester::TestFactory_TCP' -  (Class), 'TesterModel::Tester::TestProduct_ICMP' -  (Class), 'TesterModel::Tester::TestProduct_TCP' -  (Class) " />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="'TesterModel::Tester::Host' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="'TesterModel::Tester::TestAbstractFactory' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="'TesterModel::Tester::TestFactory_ICMP' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="'TesterModel::Tester::TestFactory_TCP' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="'TesterModel::Tester::TestProduct_ICMP' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-18T14:44:12" Importance="Diagnostic" Text="'TesterModel::Tester::TestProduct_TCP' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-12-18T14:44:13" Importance="Diagnostic" Text="The selection included 8 elements which were not bound to a template." />
+  <Message Timestamp="2014-12-18T14:44:13" Importance="Diagnostic" Text="'TesterModel::Tester' -  (Package): no bound template." />
+  <Message Timestamp="2014-12-18T14:44:13" Importance="Diagnostic" Text="'TesterModel::Tester::' -  (Association): no bound template." />
+  <Message Timestamp="2014-12-18T14:44:13" Importance="Diagnostic" Text="'8f07412e-23bc-4e17-b2fb-ae2f904956bf' -  (Generalization): no bound template." />
+  <Message Timestamp="2014-12-18T14:44:13" Importance="Diagnostic" Text="'bc3cd0ef-9f11-4813-bf83-ac21e512808e' -  (Generalization): no bound template." />
+  <Message Timestamp="2014-12-18T14:44:13" Importance="Diagnostic" Text="'TesterModel::Tester::' -  (Dependency): no bound template." />
+  <Message Timestamp="2014-12-18T14:44:13" Importance="Diagnostic" Text="'TesterModel::Tester::' -  (Dependency): no bound template." />
+  <Message Timestamp="2014-12-18T14:44:13" Importance="Diagnostic" Text="'TesterModel::Tester::' -  (InterfaceRealization): no bound template." />
+  <Message Timestamp="2014-12-18T14:44:13" Importance="Diagnostic" Text="'TesterModel::Tester::' -  (InterfaceRealization): no bound template." />
+  <Message Timestamp="2014-12-18T14:44:13" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+</Log>

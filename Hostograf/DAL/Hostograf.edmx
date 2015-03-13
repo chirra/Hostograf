@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Hostograf.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="HostografStoreContainer">
+    <EntitySet Name="Host" EntityType="Hostograf.Store.Host" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Test" EntityType="Hostograf.Store.Test" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Test_TestICMP" EntityType="Hostograf.Store.Test_TestICMP" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Test_TestTCP" EntityType="Hostograf.Store.Test_TestTCP" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="HostTest" Association="Hostograf.Store.HostTest">
+      <End Role="Host" EntitySet="Host" />
+      <End Role="Test" EntitySet="Test" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TestICMP_inherits_Test" Association="Hostograf.Store.FK_TestICMP_inherits_Test">
+      <End Role="Test" EntitySet="Test" />
+      <End Role="TestICMP" EntitySet="Test_TestICMP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TestTCP_inherits_Test" Association="Hostograf.Store.FK_TestTCP_inherits_Test">
+      <End Role="Test" EntitySet="Test" />
+      <End Role="TestTCP" EntitySet="Test_TestTCP" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Host">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Enabled" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Test">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Enabled" Type="bit" Nullable="false" DefaultValue="true" />
+    <Property Name="Host_Id" Type="uniqueidentifier" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Test_TestICMP">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Test_TestTCP">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Port" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <Association Name="HostTest">
+    <End Role="Host" Type="Hostograf.Store.Host" Multiplicity="0..1" />
+    <End Role="Test" Type="Hostograf.Store.Test" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Host">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Test">
+        <PropertyRef Name="Host_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TestICMP_inherits_Test">
+    <End Role="Test" Type="Hostograf.Store.Test" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TestICMP" Type="Hostograf.Store.Test_TestICMP" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Test">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TestICMP">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TestTCP_inherits_Test">
+    <End Role="Test" Type="Hostograf.Store.Test" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TestTCP" Type="Hostograf.Store.Test_TestTCP" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Test">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TestTCP">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Hostograf" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="HostografContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Host" EntityType="Hostograf.Host" />
+          <EntitySet Name="Test" EntityType="Hostograf.Test" />
+          <AssociationSet Name="HostTest" Association="Hostograf.HostTest">
+            <End Role="Host" EntitySet="Host" />
+            <End Role="Test" EntitySet="Test" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Host">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Enabled" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Test" Relationship="Hostograf.HostTest" FromRole="Host" ToRole="Test" />
+        </EntityType>
+        <EntityType Name="TestICMP" BaseType="Hostograf.Test">
+          <Property Name="Address" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TestTCP" BaseType="Hostograf.Test">
+          <Property Name="Address" Type="String" Nullable="false" />
+          <Property Name="Port" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Test">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="Host" Relationship="Hostograf.HostTest" FromRole="Test" ToRole="Host" />
+          <Property Name="Enabled" Type="Boolean" Nullable="false" DefaultValue="True" />
+        </EntityType>
+        <Association Name="HostTest">
+          <End Type="Hostograf.Host" Role="Host" Multiplicity="0..1" />
+          <End Type="Hostograf.Test" Role="Test" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HostografStoreContainer" CdmEntityContainer="HostografContainer">
+    <EntitySetMapping Name="Host">
+      <EntityTypeMapping TypeName="IsTypeOf(Hostograf.Host)">
+        <MappingFragment StoreEntitySet="Host">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Test">
+      <EntityTypeMapping TypeName="IsTypeOf(Hostograf.Test)">
+        <MappingFragment StoreEntitySet="Test">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Hostograf.TestICMP)">
+        <MappingFragment StoreEntitySet="Test_TestICMP">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Hostograf.TestTCP)">
+        <MappingFragment StoreEntitySet="Test_TestTCP">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Port" ColumnName="Port" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="HostTest" TypeName="Hostograf.HostTest" StoreEntitySet="Test">
+      <EndProperty Name="Host">
+        <ScalarProperty Name="Id" ColumnName="Host_Id" />
+      </EndProperty>
+      <EndProperty Name="Test">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Host_Id" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

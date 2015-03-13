@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+      <!--<Grid.Resources>
+            <src:Host x:Key="TestList"/>
+            
+            <HierarchicalDataTemplate DataType="{x:Type src:Host}"
+                                      ItemsSource="{Binding Path=SetOfTest}">
+                <TextBlock Text="{Binding Path=Description}">
+                    <TextBlock.Triggers>
+                        <DataTrigger Binding="{Binding Path=Enabled}" Value="False">
+                            <Setter Property="" Value="{x:Static Colors.Blue}"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=Enabled}" Value="True">
+                            <Setter Property="{x:Static Colors.Red}" Value="{x:Static Colors.Red}"></Setter>
+                        </DataTrigger>
+                    </TextBlock.Triggers>
+                </TextBlock>
+                
+            </HierarchicalDataTemplate>
+   </Grid.Resources>-->
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/"/>
+
+<!-- ПОЧТИ РАБОЧАЯ ВЕРСИЯ, Trigger Property="{Binding Path=Enabled}" ЗАПРЕЩЕНО
+
+      <HierarchicalDataTemplate DataType="{x:Type src:Host}" ItemsSource="{Binding Path=SetOfTest}">
+            <TextBlock Text="{Binding Path=Description}">
+                <TextBlock.Triggers>
+                    <Trigger Property="{Binding Path=Enabled}" Value="True">
+                        <Setter Property="Control.Foreground" Value="Orange"></Setter>
+                    </Trigger>
+                </TextBlock.Triggers>
+            </TextBlock>
+        </HierarchicalDataTemplate>-->
