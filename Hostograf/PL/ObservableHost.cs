@@ -11,11 +11,12 @@ namespace PL
 {
     public class ObservableHost: Host, INotifyPropertyChanged
     {
-
+        // INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 
-        
-
+        /// <summary>
+        /// Observe changes Enabled properties of test
+        /// </summary>
         public bool ObservableEnabled
         {
             get { return Enabled; }
@@ -33,37 +34,7 @@ namespace PL
         {
             get { return observableTestCollection; }
             set { observableTestCollection = value; }
-/*
-            get
-            {
-                var resultCollection = new TrulyObservableCollection<ObservableTestFactory>();
-                foreach (var element in TestCollection)
-                    resultCollection.Add(new ObservableTestFactory(element));
-                    return resultCollection;
-            }
-            set
-            {
-                var newTestCollection = new List<TestFactory>();
-                foreach (var element in value)
-                    newTestCollection.Add(element.TestFactory);
-                TestCollection = newTestCollection;
-            }
-*/
         }
-
-
-        /*public TrulyObservableCollection<ObservableTestFactory> ObservableTestCollection
-        {
-            get
-            {
-                var resultCollection = new TrulyObservableCollection<ObservableTestFactory>();
-                foreach (var element in TestCollection)
-                    //resultCollection.Add(new ObservableTestFactory(element));
-                    resultCollection.Add((ObservableTestFactory)element);
-                return resultCollection;
-            }
-            
-        }*/
 
         public ObservableHost()
         {
@@ -72,11 +43,14 @@ namespace PL
         
         public ObservableHost(Host host) : base(host)
         {
-            this.OnChangeTestCollection += HostOnChangeTestCollection;
-            HostOnChangeTestCollection();
+            this.OnChangeTestCollection += GetParentTestCollection;
+            GetParentTestCollection(); 
         }
 
-        private void HostOnChangeTestCollection()
+        /// <summary>
+        /// Get collection of tests from base class
+        /// </summary>
+        private void GetParentTestCollection()
         {
             ObservableTestCollection.Clear();
             foreach (TestFactory test in TestCollection)

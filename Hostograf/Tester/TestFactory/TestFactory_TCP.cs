@@ -10,13 +10,24 @@ namespace Tester
 
 	public class TestFactory_TCP : TestFactory
 	{
-        //public delegate void TestExecuteError(object error);
-        
         public override event TestExecuteError OnExecuteError;
 
+        /// <summary>
+        /// Can to work with IP address or hostname
+        /// </summary>
 	    public string Address { get; set; }
+
+        /// <summary>
+        /// TCP Port
+        /// </summary>
 	    public string Port { get; set; }
 	    
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="address"></param>
+        /// <param name="port"></param>
         public TestFactory_TCP(Guid id, string address, string port)
         {
             Id = id;
@@ -24,13 +35,16 @@ namespace Tester
             Port = port;
         }
 
+        /// <summary>
+        /// Run test
+        /// </summary>
+        /// <returns></returns>
 	    public override bool Execute()
         {
 
             bool result = false;
-	        
             TcpClient tcpClient = new TcpClient();
-	       // CheckedNow = true;
+
             try
             {
                 var ipAddress = Dns.GetHostEntry(Address).AddressList[0].ToString();
@@ -41,13 +55,8 @@ namespace Tester
             }
             catch (Exception exception)
             {
-                //Console.WriteLine(exception.Message);
-                //Console.WriteLine("Print from {0} : {1}", this.GetType(), exception);
                 if (OnExecuteError != null) OnExecuteError.Invoke(this, exception);
-                //OnExecuteError = new TestExecuteError(exception);
-                    
             }
-	       // CheckedNow = false;
 	        return result;
         }
 

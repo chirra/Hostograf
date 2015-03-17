@@ -20,14 +20,10 @@
       />
         
         <SolidColorBrush x:Key="MyBrush">#000000</SolidColorBrush>
-        <pl:BooleanToColorConverter x:Key="BooleanConverter"></pl:BooleanToColorConverter>
-        <pl:CheckedToColorConverter x:Key="CheckedConverter"></pl:CheckedToColorConverter>
-        
         
         <!-- Resource for TreeView trwHosts. Create and color nodes -->
         <src:Host x:Key="HostList"/>
         <HierarchicalDataTemplate DataType="{x:Type pl:ObservableHost}" ItemsSource="{Binding Path=ObservableTestCollection}">
-            <!--<TextBlock Text="{Binding Path=Description}" Foreground="{Binding Path=Enabled, Converter={StaticResource BooleanConverter}}">-->
             <TextBlock Text="{Binding Path=Description}">
                 <TextBlock.Style>
                     <Style TargetType="TextBlock">
@@ -46,10 +42,7 @@
         </HierarchicalDataTemplate>
         
         <DataTemplate DataType="{x:Type pl:ObservableTestFactory}">
-            <!--<TextBlock Text="{Binding Path=Name}"></TextBlock>-->
-            <!--<TextBlock Text="{Binding Path=Name}" Foreground="{Binding Path=Enabled, Converter={StaticResourceExtension BooleanConverter}}" Background="{Binding Path=CheckedNow, Converter={StaticResourceExtension CheckedConverter}}" ></TextBlock>-->
             <TextBlock Text="{Binding Path=Name}" >
-                <!--<TextBlock Text="{Binding Path=Description}">-->
                 <TextBlock.Style>
                     <Style TargetType="TextBlock">
                     <Style.Triggers>
@@ -88,8 +81,6 @@
 
     </Window.Resources>
 
-
-
     <Grid Background="#FFDAB1B1">
 
         <Grid HorizontalAlignment="Left" Height="356" Margin="10,10,0,0" VerticalAlignment="Top" Width="571" >
@@ -107,15 +98,8 @@
             <Button x:Name="btnStartStop" Content="StartStop" HorizontalAlignment="Left" Height="32" Margin="144,3,0,0" VerticalAlignment="Top" Width="32" Click="btnStartStop_Click"/>
             <Button x:Name="btnEnabled" Content="Enabled" HorizontalAlignment="Left" Height="32" Margin="181,3,0,0" VerticalAlignment="Top" Width="32" Click="btnEnabled_Click"/>
             <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Height="32" Margin="74,3,0,0" VerticalAlignment="Top" Width="32" Click="btnEdit_Click"/>
-            <TreeView x:Name="trwHosts" ItemsSource="{Binding Source={StaticResource HostList}}"  HorizontalAlignment="Left" Height="283" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="319" >
-                <!--<TreeView x:Name="trwHosts" HorizontalAlignment="Left" Height="139" Margin="49,119,0,0" Grid.Row="1" VerticalAlignment="Top" Width="176">-->
-
-
-
-
-            </TreeView>
+            <TreeView x:Name="trwHosts" ItemsSource="{Binding Source={StaticResource HostList}}"  HorizontalAlignment="Left" Height="283" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="319" />
 
         </Grid>
-
     </Grid>
 </Window>

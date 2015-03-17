@@ -31,7 +31,7 @@ namespace PL
     {
         private BackgroundWorker backgroundWorker;
         private TrulyObservableCollection<ObservableHost> hosts = new TrulyObservableCollection<ObservableHost>();
-        
+        DBController dbController = new DBController();
         
 
         public MainWindow()
@@ -108,26 +108,15 @@ namespace PL
         }
 
 
-        private bool _started = false;
         private void btnStartStop_Click(object sender, RoutedEventArgs e)
         {
-           // if (_started == false)
-            if (!backgroundWorker.IsBusy)
-            {
-                _started = true;
-                backgroundWorker.RunWorkerAsync(hosts);
-            }
-            else
-            {
-                _started = false;
-                
+            if (backgroundWorker.IsBusy)
                 backgroundWorker.CancelAsync();
-                //lblStatus.Content = "I Sleep";
-            }
+            else
+                backgroundWorker.RunWorkerAsync(hosts);
         }
 
 
-   
         private void btnAddHost_Click(object sender, RoutedEventArgs e)
         {
             AddHostWindow addHostWindow = new AddHostWindow();
@@ -135,7 +124,6 @@ namespace PL
             {
                 Host host = addHostWindow.GetHost();
                 hosts.Add(new ObservableHost(host));
-                DBController dbController = new DBController();
                 dbController.AddOrUpdateHost(host);
             }
                 
@@ -152,7 +140,6 @@ namespace PL
             if (host != null)
             {
                 hosts.Remove(host);
-                DBController dbController = new DBController();
                 dbController.RemoveHost(host);
             }
             else
@@ -161,8 +148,6 @@ namespace PL
                 host = hosts.First(x => x.TestCollection.Contains(test.TestFactory));
                 int index = hosts.IndexOf(host);
                 hosts[index].RemoveTestElement(test.TestFactory);
-                DBController dbController = new DBController();
-                
                 dbController.AddOrUpdateHost(host);
             }
         }
@@ -188,10 +173,8 @@ namespace PL
 
             if (addHostWindow.ShowDialog() == true)
             {
-              hosts[index] = new ObservableHost(addHostWindow.GetHost()); //Из за этой строчки сворачивается дерево?
-                
-                DBController dbController = new DBController();
-                dbController.AddOrUpdateHost(hosts[index]);
+              hosts[index] = new ObservableHost(addHostWindow.GetHost());
+              dbController.AddOrUpdateHost(hosts[index]);
             }
            
         }
@@ -216,8 +199,6 @@ namespace PL
                     host = hosts.First(x => x.TestCollection.Contains(test.TestFactory));
                 }
             }
-
-            DBController dbController = new DBController();
             dbController.AddOrUpdateHost(host);
         }
       

@@ -10,12 +10,6 @@ namespace PL
     public class ObservableTestFactory: INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-
-
-        //public override event TestExecuteError OnExecuteError;
-
-
         TestFactory testFactory;
 
         public TestFactory TestFactory { get { return testFactory; } }
@@ -29,7 +23,6 @@ namespace PL
         {
             this.testFactory = testFactory;
         }
-
 
         public string Name
         {

@@ -20,39 +20,39 @@ namespace PL
     /// </summary>
     public partial class AddHostWindow : Window
     {
-        //public ObservableHost obHost { get; private set; }
         private ObservableHost obHost;
+        internal Host GetHost()
+        {
+            return obHost;
+        }
 
         public AddHostWindow()
         {
             obHost = new ObservableHost();
             InitializeComponent();
-            //lstTestCollection.ItemsSource = obHost.observableSetOfTest;
         }
 
 
         public AddHostWindow(ObservableHost host)
         {
-
-            obHost = new ObservableHost(host);
+           obHost = new ObservableHost(host);
            InitializeComponent();
 
            txtDescription.Text = host.Description;
            foreach (ObservableTestFactory test in obHost.ObservableTestCollection)
                lstTestCollection.Items.Add(test);
-
         }
+
 
         void commandDelete_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             while (lstTestCollection.SelectedItems.Count > 0)
             {
-                //obHost.TestCollection.Remove(lstTestCollection.SelectedItems[0] as TestFactory);
                 obHost.RemoveTestElement(lstTestCollection.SelectedItems[0] as TestFactory);
                 lstTestCollection.Items.Remove(lstTestCollection.SelectedItems[0]);
             }
-           
         }
+
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
@@ -65,10 +65,12 @@ namespace PL
             }
         }
 
+
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
         }
+
 
         private void btnICMP_Click(object sender, RoutedEventArgs e)
         {
@@ -77,13 +79,11 @@ namespace PL
             {
                 var address = icmpTestWindow.txtAddress.Text;
                 TestFactory test = new TestFactory_ICMP(Guid.NewGuid(), address);
-                //obHost.TestCollection.Add(test);
                 obHost.AddTestElement(test);
                 lstTestCollection.Items.Add(test);
-
             }
-
         }
+
 
         private void btnTCP_Click(object sender, RoutedEventArgs e)
         {
@@ -93,16 +93,17 @@ namespace PL
                 var address = tcpTestWindow.txtAddress.Text;
                 var port = tcpTestWindow.txtPort.Text;
                 TestFactory test = new TestFactory_TCP(Guid.NewGuid(), address, port);
-                //obHost.TestCollection.Add(test);
                 obHost.AddTestElement(test);
                 lstTestCollection.Items.Add(test);
             }
         }
 
+
         private void btnDeleteTest_Click(object sender, RoutedEventArgs e)
         {
             commandDelete_Executed(this, null);
         }
+
 
         private void txtDescription_KeyDown(object sender, KeyEventArgs e)
         {
@@ -117,14 +118,11 @@ namespace PL
             }
         }
 
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Keyboard.Focus(txtDescription);
         }
 
-        internal Host GetHost()
-        {
-            return obHost;
-        }
     }
 }

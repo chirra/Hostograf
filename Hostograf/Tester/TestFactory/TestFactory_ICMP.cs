@@ -17,8 +17,6 @@ namespace Tester
 	public class TestFactory_ICMP : TestFactory
 	{
 
-        //public delegate void TestExecuteError(object error);
-
         public override event TestExecuteError OnExecuteError;
 
         /// <summary>
@@ -44,7 +42,6 @@ namespace Tester
         /// <returns></returns>
 	    public override bool Execute()
         {
-           // CheckedNow = true;
             var result = false;
             try
             {
@@ -56,11 +53,9 @@ namespace Tester
             }
             catch (Exception exception)
             {
-                //Console.WriteLine(exception.Message);
                 if (OnExecuteError != null) OnExecuteError.Invoke(this, exception);
             }
 
-            //CheckedNow = false;
             return result;
 
         }

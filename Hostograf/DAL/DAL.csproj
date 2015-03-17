@@ -68,8 +68,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Garbage\DBWorker.cs" />
-    <Compile Include="Garbage\ExtensionMethods.cs" />
     <Compile Include="Host.cs">
       <DependentUpon>Hostograf.tt</DependentUpon>
     </Compile>
