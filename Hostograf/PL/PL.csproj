@@ -57,6 +57,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ObservableTestFactory.cs" />
     <Compile Include="TrulyObservableCollection.cs" />
     <Page Include="AddHostWindow.xaml">
       <SubType>Designer</SubType>

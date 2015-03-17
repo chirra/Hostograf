@@ -20,24 +20,25 @@ namespace PL
     /// </summary>
     public partial class AddHostWindow : Window
     {
-        public Host obHost { get; private set; }
+        //public ObservableHost obHost { get; private set; }
+        private ObservableHost obHost;
 
         public AddHostWindow()
         {
-            obHost = new Host();
+            obHost = new ObservableHost();
             InitializeComponent();
             //lstTestCollection.ItemsSource = obHost.observableSetOfTest;
         }
 
 
-        public AddHostWindow(Host host)
+        public AddHostWindow(ObservableHost host)
         {
-            
-           obHost = new Host(host);
+
+            obHost = new ObservableHost(host);
            InitializeComponent();
 
            txtDescription.Text = host.Description;
-           foreach (TestFactory test in obHost.TestCollection)
+           foreach (ObservableTestFactory test in obHost.ObservableTestCollection)
                lstTestCollection.Items.Add(test);
 
         }
@@ -46,7 +47,8 @@ namespace PL
         {
             while (lstTestCollection.SelectedItems.Count > 0)
             {
-                obHost.TestCollection.Remove(lstTestCollection.SelectedItems[0] as TestFactory);
+                //obHost.TestCollection.Remove(lstTestCollection.SelectedItems[0] as TestFactory);
+                obHost.RemoveTestElement(lstTestCollection.SelectedItems[0] as TestFactory);
                 lstTestCollection.Items.Remove(lstTestCollection.SelectedItems[0]);
             }
            
@@ -75,7 +77,8 @@ namespace PL
             {
                 var address = icmpTestWindow.txtAddress.Text;
                 TestFactory test = new TestFactory_ICMP(Guid.NewGuid(), address);
-                obHost.TestCollection.Add(test);
+                //obHost.TestCollection.Add(test);
+                obHost.AddTestElement(test);
                 lstTestCollection.Items.Add(test);
 
             }
@@ -90,7 +93,8 @@ namespace PL
                 var address = tcpTestWindow.txtAddress.Text;
                 var port = tcpTestWindow.txtPort.Text;
                 TestFactory test = new TestFactory_TCP(Guid.NewGuid(), address, port);
-                obHost.TestCollection.Add(test);
+                //obHost.TestCollection.Add(test);
+                obHost.AddTestElement(test);
                 lstTestCollection.Items.Add(test);
             }
         }
@@ -116,6 +120,11 @@ namespace PL
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Keyboard.Focus(txtDescription);
+        }
+
+        internal Host GetHost()
+        {
+            return obHost;
         }
     }
 }

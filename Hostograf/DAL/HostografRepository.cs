@@ -111,7 +111,7 @@ namespace DAL
             // Get and update test in DataBase
             foreach (var test in host.Test)
             {
-                var dbTest = context.Test.First(t => t.Id == test.Id); // Get test from database
+                var dbTest = context.Test.FirstOrDefault(t => t.Id == test.Id); // Get test from database
                 if (dbTest != null)
                     context.Entry(dbTest).CurrentValues.SetValues(test); // Update test
                 else

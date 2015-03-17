@@ -63,7 +63,6 @@
     <Compile Include="TestFactory\TestFactory_TCP.cs" />
     <Compile Include="Garbage\TestProduct_ICMP.cs" />
     <Compile Include="Garbage\TestProduct_TCP.cs" />
-    <Compile Include="TrulyObservableCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

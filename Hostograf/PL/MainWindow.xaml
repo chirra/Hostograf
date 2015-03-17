@@ -45,7 +45,7 @@
             </TextBlock>
         </HierarchicalDataTemplate>
         
-        <DataTemplate DataType="{x:Type src:TestFactory}">
+        <DataTemplate DataType="{x:Type pl:ObservableTestFactory}">
             <!--<TextBlock Text="{Binding Path=Name}"></TextBlock>-->
             <!--<TextBlock Text="{Binding Path=Name}" Foreground="{Binding Path=Enabled, Converter={StaticResourceExtension BooleanConverter}}" Background="{Binding Path=CheckedNow, Converter={StaticResourceExtension CheckedConverter}}" ></TextBlock>-->
             <TextBlock Text="{Binding Path=Name}" >
@@ -53,30 +53,30 @@
                 <TextBlock.Style>
                     <Style TargetType="TextBlock">
                     <Style.Triggers>
-                            <DataTrigger Binding="{Binding Path=Enabled}" Value="False">
+                            <DataTrigger Binding="{Binding Path=ObservableEnabled}" Value="False">
                                 <Setter Property="TextBlock.Foreground" Value="BurlyWood"></Setter>
                             </DataTrigger>
 
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
-                                    <Condition Binding="{Binding Path=Enabled}" Value="true"></Condition>
-                                    <Condition Binding="{Binding Path=Pass}" Value="true"></Condition>
+                                    <Condition Binding="{Binding Path=ObservableEnabled}" Value="true"></Condition>
+                                    <Condition Binding="{Binding Path=ObservablePass}" Value="true"></Condition>
                                 </MultiDataTrigger.Conditions>
                                 <Setter Property="TextBlock.Foreground" Value="Green"></Setter>
                             </MultiDataTrigger>
 
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
-                                    <Condition Binding="{Binding Path=Enabled}" Value="true"></Condition>
-                                    <Condition Binding="{Binding Path=Pass}" Value="false"></Condition>
+                                    <Condition Binding="{Binding Path=ObservableEnabled}" Value="true"></Condition>
+                                    <Condition Binding="{Binding Path=ObservablePass}" Value="false"></Condition>
                                 </MultiDataTrigger.Conditions>
                                 <Setter Property="TextBlock.Foreground" Value="Red"></Setter>
                             </MultiDataTrigger> 
 
-                            <DataTrigger Binding="{Binding Path=CheckedNow}" Value="True">
+                            <DataTrigger Binding="{Binding Path=ObservableCheckedNow}" Value="True">
                                 <Setter Property="TextBlock.Background" Value="Brown"></Setter>
                             </DataTrigger>
-                            <DataTrigger Binding="{Binding Path=CheckedNow}" Value="False">
+                            <DataTrigger Binding="{Binding Path=ObservableCheckedNow}" Value="False">
                                 <Setter Property="TextBlock.Background" Value="Transparent"></Setter>
                             </DataTrigger>
 

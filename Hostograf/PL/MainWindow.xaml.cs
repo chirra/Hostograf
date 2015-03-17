@@ -67,27 +67,27 @@ namespace PL
                             {
                                 if (!host.TestCollection[j].Enabled) continue;
 
-                                var test = host.TestCollection[j];
+                                var test = host.ObservableTestCollection[j];
                                 
                                 if (worker.CancellationPending)
                                     return;
 
-                                Dispatcher.BeginInvoke(new ThreadStart(delegate { test.CheckedNow = true; }));
+                                Dispatcher.BeginInvoke(new ThreadStart(delegate { test.ObservableCheckedNow = true; }));
 
                                 if (test.Execute())
                                 {
                                     Dispatcher.BeginInvoke(
                                         new ThreadStart(delegate { lblStatus.Content = test + ".... Pass"; }));
-                                    Dispatcher.BeginInvoke(new ThreadStart(delegate { test.Pass = true; }));
+                                    Dispatcher.BeginInvoke(new ThreadStart(delegate { test.ObservablePass = true; }));
                                 }
 
                                 else
                                 {
                                     Dispatcher.BeginInvoke(new ThreadStart(delegate { lblStatus.Content = test + ".... Fail"; }));
-                                    Dispatcher.BeginInvoke(new ThreadStart(delegate { test.Pass = false; }));
+                                    Dispatcher.BeginInvoke(new ThreadStart(delegate { test.ObservablePass = false; }));
                                 }
                                 Thread.Sleep(1000);
-                                Dispatcher.BeginInvoke(new ThreadStart(delegate { test.CheckedNow = false; }));
+                                Dispatcher.BeginInvoke(new ThreadStart(delegate { test.ObservableCheckedNow = false; }));
                             }
                         }
                     }
@@ -133,7 +133,7 @@ namespace PL
             AddHostWindow addHostWindow = new AddHostWindow();
             if (addHostWindow.ShowDialog() == true)
             {
-                Host host = addHostWindow.obHost;
+                Host host = addHostWindow.GetHost();
                 hosts.Add(new ObservableHost(host));
                 DBController dbController = new DBController();
                 dbController.AddOrUpdateHost(host);
@@ -157,10 +157,10 @@ namespace PL
             }
             else
             {
-                var test = currentItem as TestFactory;
-                host = hosts.First(x => x.TestCollection.Contains(test));
+                var test = currentItem as ObservableTestFactory;
+                host = hosts.First(x => x.TestCollection.Contains(test.TestFactory));
                 int index = hosts.IndexOf(host);
-                hosts[index].TestCollection.Remove(test);
+                hosts[index].RemoveTestElement(test.TestFactory);
                 DBController dbController = new DBController();
                 
                 dbController.AddOrUpdateHost(host);
@@ -178,8 +178,8 @@ namespace PL
             var host = currentItem as ObservableHost;
             if (host == null)
             {
-                var test = currentItem as TestFactory;
-                host = hosts.First(x => x.TestCollection.Contains(test));
+                var test = currentItem as ObservableTestFactory;
+                host = hosts.First(x => x.TestCollection.Contains(test.TestFactory));
             }
 
             int index = hosts.IndexOf(host);
@@ -188,8 +188,8 @@ namespace PL
 
             if (addHostWindow.ShowDialog() == true)
             {
-              hosts[index] = new ObservableHost(addHostWindow.obHost); //Из за этой строчки сворачивается дерево?
-                //hosts[index].Description
+              hosts[index] = new ObservableHost(addHostWindow.GetHost()); //Из за этой строчки сворачивается дерево?
+                
                 DBController dbController = new DBController();
                 dbController.AddOrUpdateHost(hosts[index]);
             }
@@ -209,11 +209,11 @@ namespace PL
                 host.ObservableEnabled = !host.ObservableEnabled;
             else
             {
-                var test = currentItem as TestFactory;
+                var test = currentItem as ObservableTestFactory;
                 if (test != null)
                 {
-                    test.Enabled = !test.Enabled;
-                    host = hosts.First(x => x.TestCollection.Contains(test));
+                    test.ObservableEnabled = !test.ObservableEnabled;
+                    host = hosts.First(x => x.TestCollection.Contains(test.TestFactory));
                 }
             }
 

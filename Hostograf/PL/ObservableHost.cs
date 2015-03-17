@@ -9,7 +9,7 @@ using Tester;
 
 namespace PL
 {
-    class ObservableHost: Host, INotifyPropertyChanged
+    public class ObservableHost: Host, INotifyPropertyChanged
     {
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -27,31 +27,62 @@ namespace PL
             }
         }
 
-        //TrulyObservableCollection<TestFactory> observableTestCollection = new TrulyObservableCollection<TestFactory>();
+        TrulyObservableCollection<ObservableTestFactory> observableTestCollection = new TrulyObservableCollection<ObservableTestFactory>();
 
-        public TrulyObservableCollection<TestFactory> ObservableTestCollection
+       public TrulyObservableCollection<ObservableTestFactory> ObservableTestCollection
         {
+            get { return observableTestCollection; }
+            set { observableTestCollection = value; }
+/*
             get
             {
-                var resultCollection = new TrulyObservableCollection<TestFactory>();
+                var resultCollection = new TrulyObservableCollection<ObservableTestFactory>();
                 foreach (var element in TestCollection)
-                    resultCollection.Add(element);
-                return resultCollection;
+                    resultCollection.Add(new ObservableTestFactory(element));
+                    return resultCollection;
             }
             set
             {
                 var newTestCollection = new List<TestFactory>();
                 foreach (var element in value)
-                    newTestCollection.Add(element);
+                    newTestCollection.Add(element.TestFactory);
                 TestCollection = newTestCollection;
             }
+*/
         }
 
-        public ObservableHost(Host host) : base(host)
+
+        /*public TrulyObservableCollection<ObservableTestFactory> ObservableTestCollection
+        {
+            get
+            {
+                var resultCollection = new TrulyObservableCollection<ObservableTestFactory>();
+                foreach (var element in TestCollection)
+                    //resultCollection.Add(new ObservableTestFactory(element));
+                    resultCollection.Add((ObservableTestFactory)element);
+                return resultCollection;
+            }
+            
+        }*/
+
+        public ObservableHost()
         {
             
         }
+        
+        public ObservableHost(Host host) : base(host)
+        {
+            this.OnChangeTestCollection += HostOnChangeTestCollection;
+            HostOnChangeTestCollection();
+        }
 
-      
+        private void HostOnChangeTestCollection()
+        {
+            ObservableTestCollection.Clear();
+            foreach (TestFactory test in TestCollection)
+            {
+                ObservableTestCollection.Add(new ObservableTestFactory(test));
+            }
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace Tester
     /// <summary>
     /// Abstract Class of tests
     /// </summary>
-    public abstract class TestFactory : INotifyPropertyChanged
+    public abstract class TestFactory //: INotifyPropertyChanged
     {
         public delegate void TestExecuteError(object sender, object error);
         public delegate void ChangeEnabled();
@@ -21,12 +21,16 @@ namespace Tester
         public event ChangePass OnChangePass;
 
         public Guid Id { get; set; }
-        public string Name { get { return this.ToString(); } }
+
+        //Name будет в ObservableTestFactory
+        //public string Name { get { return this.ToString(); } }
+        
         private bool enabled = true;
         public bool Enabled
         {
             get { return enabled; }
-            set
+            set { enabled = value; }
+            /*set
             {
 
                 if (enabled != value && PropertyChanged != null)
@@ -35,9 +39,10 @@ namespace Tester
                     PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Enabled"));
                 }
                 
-            }
+            }*/
         }
 
+/*
         private bool pass = true;
         
         public bool Pass
@@ -66,6 +71,7 @@ namespace Tester
                 
             } 
         }
+*/
             
         
 
@@ -77,7 +83,7 @@ namespace Tester
        public abstract bool Execute();
 
 
-       public event PropertyChangedEventHandler PropertyChanged;
+       //public event PropertyChangedEventHandler PropertyChanged;
     }
 
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Reflection;
 using DAL;
 using PL;
@@ -35,6 +36,9 @@ namespace Tester
             }*/
         }
 
+        public delegate void ChangeTestCollection();
+        public event ChangeTestCollection OnChangeTestCollection;
+
         List<TestFactory> testCollection = new List<TestFactory>(); 
         //public TrulyObservableCollection<TestFactory> TestCollection { get; set; }
         public IList<TestFactory> TestCollection
@@ -50,9 +54,14 @@ namespace Tester
             }
         }
 
+        /// <summary>
+        /// Get collection of tests as read only. For remove or add element use another methods.
+        /// </summary>
+        /// <returns></returns>
         public IList<TestFactory> GetTestCollection()
         {
             return testCollection.AsReadOnly();
+            //return testCollection;
         }
 
         public void AddTestRange(IList<TestFactory> collection)
@@ -61,16 +70,19 @@ namespace Tester
             {
                 testCollection.Add(element);
             }
+            if (OnChangeTestCollection != null) OnChangeTestCollection.Invoke();
         }
 
         public void AddTestElement(TestFactory element)
         {
             testCollection.Add(element);
+            if (OnChangeTestCollection != null) OnChangeTestCollection.Invoke();
         }
 
         public void RemoveTestElement(TestFactory element)
         {
             testCollection.Remove(element);
+            if (OnChangeTestCollection != null) OnChangeTestCollection.Invoke();
         }
  
 
