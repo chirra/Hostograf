@@ -1,0 +1,512 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tester.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:Tester.Fakes.ShimDBController">
+            <summary>Shim type of Tester.DBController</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimDBController.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimDBController.#ctor(Tester.DBController)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimDBController.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimDBController.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimDBController.AddOrUpdateHostHost">
+            <summary>Sets the shim of DBController.AddOrUpdateHost(Host host)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimDBController.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimDBController.Constructor">
+            <summary>Sets the shim of DBController.DBController()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimDBController.GetHosts">
+            <summary>Sets the shim of DBController.GetHosts()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimDBController.RemoveHostHost">
+            <summary>Sets the shim of DBController.RemoveHost(Host host)</summary>
+        </member>
+        <member name="T:Tester.Fakes.ShimDBController.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimDBController.AllInstances.AddOrUpdateHostHost">
+            <summary>Sets the shim of DBController.AddOrUpdateHost(Host host)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimDBController.AllInstances.GetHosts">
+            <summary>Sets the shim of DBController.GetHosts()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimDBController.AllInstances.RemoveHostHost">
+            <summary>Sets the shim of DBController.RemoveHost(Host host)</summary>
+        </member>
+        <member name="T:Tester.Fakes.ShimErrorHandler">
+            <summary>Shim type of Tester.ErrorHandler</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimErrorHandler.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimErrorHandler.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimErrorHandler.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimErrorHandler.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimErrorHandler.ErrorHandlerToFileObjectObject">
+            <summary>Sets the shim of ErrorHandler.ErrorHandlerToFile(Object sender, Object error)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimErrorHandler.ErrorHandlerToMessageBoxObjectObject">
+            <summary>Sets the shim of ErrorHandler.ErrorHandlerToMessageBox(Object sender, Object error)</summary>
+        </member>
+        <member name="T:Tester.Fakes.ShimHost">
+            <summary>Shim type of Tester.Host</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimHost.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimHost.#ctor(Tester.Host)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimHost.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimHost.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.AddTestElementTestFactory">
+            <summary>Sets the shim of Host.AddTestElement(TestFactory element)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.AddTestRangeIListOfTestFactory">
+            <summary>Sets the shim of Host.AddTestRange(IList`1&lt;TestFactory&gt; collection)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.Constructor">
+            <summary>Sets the shim of Host.Host()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.ConstructorGuidString">
+            <summary>Sets the shim of Host.Host(Guid id, String description)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.ConstructorGuidStringIListOfTestFactoryBoolean">
+            <summary>Sets the shim of Host.Host(Guid id, String description, IList`1&lt;TestFactory&gt; testCollection, Boolean enabled)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.ConstructorGuidStringTestFactoryBoolean">
+            <summary>Sets the shim of Host.Host(Guid id, String description, TestFactory test, Boolean enabled)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.ConstructorHost">
+            <summary>Sets the shim of Host.Host(Host host)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.DescriptionGet">
+            <summary>Sets the shim of Host.get_Description()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.DescriptionSetString">
+            <summary>Sets the shim of Host.set_Description(String value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.EnabledGet">
+            <summary>Sets the shim of Host.get_Enabled()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.EnabledSetBoolean">
+            <summary>Sets the shim of Host.set_Enabled(Boolean value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.GetTestCollection">
+            <summary>Sets the shim of Host.GetTestCollection()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.IdGet">
+            <summary>Sets the shim of Host.get_Id()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.IdSetGuid">
+            <summary>Sets the shim of Host.set_Id(Guid value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.OnChangeTestCollectionAddHostChangeTestCollection">
+            <summary>Sets the shim of Host.add_OnChangeTestCollection(ChangeTestCollection value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.OnChangeTestCollectionRemoveHostChangeTestCollection">
+            <summary>Sets the shim of Host.remove_OnChangeTestCollection(ChangeTestCollection value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.RemoveTestElementTestFactory">
+            <summary>Sets the shim of Host.RemoveTestElement(TestFactory element)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.TestCollectionGet">
+            <summary>Sets the shim of Host.get_TestCollection()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.TestCollectionSetIListOfTestFactory">
+            <summary>Sets the shim of Host.set_TestCollection(IList`1&lt;TestFactory&gt; value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.ToString">
+            <summary>Sets the shim of Host.ToString()</summary>
+        </member>
+        <member name="T:Tester.Fakes.ShimHost.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.AllInstances.AddTestElementTestFactory">
+            <summary>Sets the shim of Host.AddTestElement(TestFactory element)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.AllInstances.AddTestRangeIListOfTestFactory">
+            <summary>Sets the shim of Host.AddTestRange(IList`1&lt;TestFactory&gt; collection)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.AllInstances.DescriptionGet">
+            <summary>Sets the shim of Host.get_Description()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.AllInstances.DescriptionSetString">
+            <summary>Sets the shim of Host.set_Description(String value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.AllInstances.EnabledGet">
+            <summary>Sets the shim of Host.get_Enabled()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.AllInstances.EnabledSetBoolean">
+            <summary>Sets the shim of Host.set_Enabled(Boolean value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.AllInstances.GetTestCollection">
+            <summary>Sets the shim of Host.GetTestCollection()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.AllInstances.IdGet">
+            <summary>Sets the shim of Host.get_Id()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.AllInstances.IdSetGuid">
+            <summary>Sets the shim of Host.set_Id(Guid value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.AllInstances.OnChangeTestCollectionAddHostChangeTestCollection">
+            <summary>Sets the shim of Host.add_OnChangeTestCollection(ChangeTestCollection value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.AllInstances.OnChangeTestCollectionRemoveHostChangeTestCollection">
+            <summary>Sets the shim of Host.remove_OnChangeTestCollection(ChangeTestCollection value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.AllInstances.RemoveTestElementTestFactory">
+            <summary>Sets the shim of Host.RemoveTestElement(TestFactory element)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.AllInstances.TestCollectionGet">
+            <summary>Sets the shim of Host.get_TestCollection()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.AllInstances.TestCollectionSetIListOfTestFactory">
+            <summary>Sets the shim of Host.set_TestCollection(IList`1&lt;TestFactory&gt; value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimHost.AllInstances.ToString01">
+            <summary>Sets the shim of Host.ToString()</summary>
+        </member>
+        <member name="T:Tester.Fakes.ShimTestFactory">
+            <summary>Shim type of Tester.TestFactory</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimTestFactory.#ctor(Tester.TestFactory)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimTestFactory.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimTestFactory.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory.Constructor">
+            <summary>Sets the shim of TestFactory.TestFactory()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory.EnabledGet">
+            <summary>Sets the shim of TestFactory.get_Enabled()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory.EnabledSetBoolean">
+            <summary>Sets the shim of TestFactory.set_Enabled(Boolean value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory.IdGet">
+            <summary>Sets the shim of TestFactory.get_Id()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory.IdSetGuid">
+            <summary>Sets the shim of TestFactory.set_Id(Guid value)</summary>
+        </member>
+        <member name="T:Tester.Fakes.ShimTestFactory.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory.AllInstances.EnabledGet">
+            <summary>Sets the shim of TestFactory.get_Enabled()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory.AllInstances.EnabledSetBoolean">
+            <summary>Sets the shim of TestFactory.set_Enabled(Boolean value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory.AllInstances.IdGet">
+            <summary>Sets the shim of TestFactory.get_Id()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory.AllInstances.IdSetGuid">
+            <summary>Sets the shim of TestFactory.set_Id(Guid value)</summary>
+        </member>
+        <member name="T:Tester.Fakes.ShimTestFactory_ICMP">
+            <summary>Shim type of Tester.TestFactory_ICMP</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimTestFactory_ICMP.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimTestFactory_ICMP.#ctor(Tester.TestFactory_ICMP)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimTestFactory_ICMP.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimTestFactory_ICMP.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_ICMP.AddressGet">
+            <summary>Sets the shim of TestFactory_ICMP.get_Address()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_ICMP.AddressSetString">
+            <summary>Sets the shim of TestFactory_ICMP.set_Address(String value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_ICMP.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_ICMP.ConstructorGuidString">
+            <summary>Sets the shim of TestFactory_ICMP.TestFactory_ICMP(Guid id, String address)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_ICMP.Execute">
+            <summary>Sets the shim of TestFactory_ICMP.Execute()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_ICMP.OnExecuteErrorAddTestFactoryTestExecuteError">
+            <summary>Sets the shim of TestFactory_ICMP.add_OnExecuteError(TestExecuteError value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_ICMP.OnExecuteErrorRemoveTestFactoryTestExecuteError">
+            <summary>Sets the shim of TestFactory_ICMP.remove_OnExecuteError(TestExecuteError value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_ICMP.ToString">
+            <summary>Sets the shim of TestFactory_ICMP.ToString()</summary>
+        </member>
+        <member name="T:Tester.Fakes.ShimTestFactory_ICMP.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_ICMP.AllInstances.AddressGet">
+            <summary>Sets the shim of TestFactory_ICMP.get_Address()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_ICMP.AllInstances.AddressSetString">
+            <summary>Sets the shim of TestFactory_ICMP.set_Address(String value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_ICMP.AllInstances.Execute">
+            <summary>Sets the shim of TestFactory_ICMP.Execute()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_ICMP.AllInstances.OnExecuteErrorAddTestFactoryTestExecuteError">
+            <summary>Sets the shim of TestFactory_ICMP.add_OnExecuteError(TestExecuteError value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_ICMP.AllInstances.OnExecuteErrorRemoveTestFactoryTestExecuteError">
+            <summary>Sets the shim of TestFactory_ICMP.remove_OnExecuteError(TestExecuteError value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_ICMP.AllInstances.ToString01">
+            <summary>Sets the shim of TestFactory_ICMP.ToString()</summary>
+        </member>
+        <member name="T:Tester.Fakes.ShimTestFactory_TCP">
+            <summary>Shim type of Tester.TestFactory_TCP</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimTestFactory_TCP.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimTestFactory_TCP.#ctor(Tester.TestFactory_TCP)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimTestFactory_TCP.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Tester.Fakes.ShimTestFactory_TCP.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_TCP.AddressGet">
+            <summary>Sets the shim of TestFactory_TCP.get_Address()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_TCP.AddressSetString">
+            <summary>Sets the shim of TestFactory_TCP.set_Address(String value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_TCP.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_TCP.ConstructorGuidStringString">
+            <summary>Sets the shim of TestFactory_TCP.TestFactory_TCP(Guid id, String address, String port)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_TCP.Execute">
+            <summary>Sets the shim of TestFactory_TCP.Execute()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_TCP.OnExecuteErrorAddTestFactoryTestExecuteError">
+            <summary>Sets the shim of TestFactory_TCP.add_OnExecuteError(TestExecuteError value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_TCP.OnExecuteErrorRemoveTestFactoryTestExecuteError">
+            <summary>Sets the shim of TestFactory_TCP.remove_OnExecuteError(TestExecuteError value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_TCP.PortGet">
+            <summary>Sets the shim of TestFactory_TCP.get_Port()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_TCP.PortSetString">
+            <summary>Sets the shim of TestFactory_TCP.set_Port(String value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_TCP.ToString">
+            <summary>Sets the shim of TestFactory_TCP.ToString()</summary>
+        </member>
+        <member name="T:Tester.Fakes.ShimTestFactory_TCP.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_TCP.AllInstances.AddressGet">
+            <summary>Sets the shim of TestFactory_TCP.get_Address()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_TCP.AllInstances.AddressSetString">
+            <summary>Sets the shim of TestFactory_TCP.set_Address(String value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_TCP.AllInstances.Execute">
+            <summary>Sets the shim of TestFactory_TCP.Execute()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_TCP.AllInstances.OnExecuteErrorAddTestFactoryTestExecuteError">
+            <summary>Sets the shim of TestFactory_TCP.add_OnExecuteError(TestExecuteError value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_TCP.AllInstances.OnExecuteErrorRemoveTestFactoryTestExecuteError">
+            <summary>Sets the shim of TestFactory_TCP.remove_OnExecuteError(TestExecuteError value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_TCP.AllInstances.PortGet">
+            <summary>Sets the shim of TestFactory_TCP.get_Port()</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_TCP.AllInstances.PortSetString">
+            <summary>Sets the shim of TestFactory_TCP.set_Port(String value)</summary>
+        </member>
+        <member name="P:Tester.Fakes.ShimTestFactory_TCP.AllInstances.ToString01">
+            <summary>Sets the shim of TestFactory_TCP.ToString()</summary>
+        </member>
+        <member name="T:Tester.Fakes.StubDBController">
+            <summary>Stub type of Tester.DBController</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubDBController.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubDBController.InitializeStub">
+            <summary>Initializes a new instance of type StubDBController</summary>
+        </member>
+        <member name="P:Tester.Fakes.StubDBController.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Tester.Fakes.StubDBController.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Tester.Fakes.StubDBController.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Tester.Fakes.StubHost">
+            <summary>Stub type of Tester.Host</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubHost.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubHost.#ctor(Tester.Host)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubHost.#ctor(System.Guid,System.String)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubHost.#ctor(System.Guid,System.String,Tester.TestFactory,System.Boolean)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubHost.#ctor(System.Guid,System.String,System.Collections.Generic.IList{Tester.TestFactory},System.Boolean)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubHost.InitializeStub">
+            <summary>Initializes a new instance of type StubHost</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubHost.ToString">
+            <summary>Sets the stub of Host.ToString()</summary>
+        </member>
+        <member name="F:Tester.Fakes.StubHost.ToString01">
+            <summary>Sets the stub of Host.ToString()</summary>
+        </member>
+        <member name="P:Tester.Fakes.StubHost.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Tester.Fakes.StubHost.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Tester.Fakes.StubHost.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Tester.Fakes.StubTestFactory">
+            <summary>Stub type of Tester.TestFactory</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubTestFactory.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubTestFactory.Execute">
+            <summary>Sets the stub of TestFactory.Execute()</summary>
+        </member>
+        <member name="F:Tester.Fakes.StubTestFactory.Execute01">
+            <summary>Sets the stub of TestFactory.Execute()</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubTestFactory.InitializeStub">
+            <summary>Initializes a new instance of type StubTestFactory</summary>
+        </member>
+        <member name="P:Tester.Fakes.StubTestFactory.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Tester.Fakes.StubTestFactory.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Tester.Fakes.StubTestFactory.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Tester.Fakes.StubTestFactory_ICMP">
+            <summary>Stub type of Tester.TestFactory_ICMP</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubTestFactory_ICMP.#ctor(System.Guid,System.String)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubTestFactory_ICMP.Execute">
+            <summary>Sets the stub of TestFactory_ICMP.Execute()</summary>
+        </member>
+        <member name="F:Tester.Fakes.StubTestFactory_ICMP.Execute01">
+            <summary>Sets the stub of TestFactory_ICMP.Execute()</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubTestFactory_ICMP.InitializeStub">
+            <summary>Initializes a new instance of type StubTestFactory_ICMP</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubTestFactory_ICMP.ToString">
+            <summary>Sets the stub of TestFactory_ICMP.ToString()</summary>
+        </member>
+        <member name="F:Tester.Fakes.StubTestFactory_ICMP.ToString01">
+            <summary>Sets the stub of TestFactory_ICMP.ToString()</summary>
+        </member>
+        <member name="P:Tester.Fakes.StubTestFactory_ICMP.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Tester.Fakes.StubTestFactory_ICMP.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Tester.Fakes.StubTestFactory_ICMP.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Tester.Fakes.StubTestFactory_TCP">
+            <summary>Stub type of Tester.TestFactory_TCP</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubTestFactory_TCP.#ctor(System.Guid,System.String,System.String)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubTestFactory_TCP.Execute">
+            <summary>Sets the stub of TestFactory_TCP.Execute()</summary>
+        </member>
+        <member name="F:Tester.Fakes.StubTestFactory_TCP.Execute01">
+            <summary>Sets the stub of TestFactory_TCP.Execute()</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubTestFactory_TCP.InitializeStub">
+            <summary>Initializes a new instance of type StubTestFactory_TCP</summary>
+        </member>
+        <member name="M:Tester.Fakes.StubTestFactory_TCP.ToString">
+            <summary>Sets the stub of TestFactory_TCP.ToString()</summary>
+        </member>
+        <member name="F:Tester.Fakes.StubTestFactory_TCP.ToString01">
+            <summary>Sets the stub of TestFactory_TCP.ToString()</summary>
+        </member>
+        <member name="P:Tester.Fakes.StubTestFactory_TCP.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Tester.Fakes.StubTestFactory_TCP.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Tester.Fakes.StubTestFactory_TCP.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+    </members>
+</doc>
