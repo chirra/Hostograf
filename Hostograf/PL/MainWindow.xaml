@@ -5,7 +5,7 @@
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=System"
         xmlns:pl="clr-namespace:PL"
         xmlns:objectModel="clr-namespace:System.Collections.ObjectModel;assembly=System"
-        Title="MainWindow" Height="415" Width="607">
+        Title="Hostograf" Height="406" Width="530" BorderBrush="#FF5D4037" Foreground="#FF727272">
 
 
     <Window.Resources>
@@ -18,21 +18,19 @@
       RunWorkerCompleted="BackgroundWorker_RunWorkerCompleted"
       ProgressChanged="BackgroundWorker_ProgressChanged"
       />
-        
-        <SolidColorBrush x:Key="MyBrush">#000000</SolidColorBrush>
-        
+
         <!-- Resource for TreeView trwHosts. Create and color nodes -->
         <src:Host x:Key="HostList"/>
         <HierarchicalDataTemplate DataType="{x:Type pl:ObservableHost}" ItemsSource="{Binding Path=ObservableTestCollection}">
             <TextBlock Text="{Binding Path=Description}">
                 <TextBlock.Style>
                     <Style TargetType="TextBlock">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding Path=ObservableEnabled}" Value="True">
-                            <Setter Property="TextBlock.Foreground" Value="Black"></Setter>
-                        </DataTrigger>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=ObservableEnabled}" Value="True">
+                                <Setter Property="TextBlock.Foreground" Value="{StaticResource FontColorTreeEnable}"></Setter>
+                            </DataTrigger>
                             <DataTrigger Binding="{Binding Path=ObservableEnabled}" Value="False">
-                                <Setter Property="TextBlock.Foreground" Value="BurlyWood"></Setter>
+                                <Setter Property="TextBlock.Foreground" Value="{StaticResource FontColorTreeDisable}"></Setter>
                             </DataTrigger>
 
                         </Style.Triggers>
@@ -40,14 +38,14 @@
                 </TextBlock.Style>
             </TextBlock>
         </HierarchicalDataTemplate>
-        
+
         <DataTemplate DataType="{x:Type pl:ObservableTestFactory}">
             <TextBlock Text="{Binding Path=Name}" >
                 <TextBlock.Style>
                     <Style TargetType="TextBlock">
-                    <Style.Triggers>
+                        <Style.Triggers>
                             <DataTrigger Binding="{Binding Path=ObservableEnabled}" Value="False">
-                                <Setter Property="TextBlock.Foreground" Value="BurlyWood"></Setter>
+                                <Setter Property="TextBlock.Foreground" Value="{StaticResource FontColorTreeDisable}"></Setter>
                             </DataTrigger>
 
                             <MultiDataTrigger>
@@ -55,7 +53,7 @@
                                     <Condition Binding="{Binding Path=ObservableEnabled}" Value="true"></Condition>
                                     <Condition Binding="{Binding Path=ObservablePass}" Value="true"></Condition>
                                 </MultiDataTrigger.Conditions>
-                                <Setter Property="TextBlock.Foreground" Value="Green"></Setter>
+                                <Setter Property="TextBlock.Foreground" Value="{StaticResource FontColor}"></Setter>
                             </MultiDataTrigger>
 
                             <MultiDataTrigger>
@@ -63,11 +61,11 @@
                                     <Condition Binding="{Binding Path=ObservableEnabled}" Value="true"></Condition>
                                     <Condition Binding="{Binding Path=ObservablePass}" Value="false"></Condition>
                                 </MultiDataTrigger.Conditions>
-                                <Setter Property="TextBlock.Foreground" Value="Red"></Setter>
-                            </MultiDataTrigger> 
+                                <Setter Property="TextBlock.Foreground" Value="{StaticResource FontColorTreeFail}"></Setter>
+                            </MultiDataTrigger>
 
                             <DataTrigger Binding="{Binding Path=ObservableCheckedNow}" Value="True">
-                                <Setter Property="TextBlock.Background" Value="Brown"></Setter>
+                                <Setter Property="TextBlock.Background" Value="{StaticResource BgColorTreeChecked}"></Setter>
                             </DataTrigger>
                             <DataTrigger Binding="{Binding Path=ObservableCheckedNow}" Value="False">
                                 <Setter Property="TextBlock.Background" Value="Transparent"></Setter>
@@ -81,24 +79,25 @@
 
     </Window.Resources>
 
-    <Grid Background="#FFDAB1B1">
+    <!--<Grid Background="#FFDAB1B1">-->
+    <Grid Background="{StaticResource WindowColor}" Margin="0,0,2,1">
 
-        <Grid HorizontalAlignment="Left" Height="356" Margin="10,10,0,0" VerticalAlignment="Top" Width="571" >
+        <Grid HorizontalAlignment="Left" Height="356" Margin="8,10,0,0" VerticalAlignment="Top" Width="516" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="35
                                "/>
                 <RowDefinition/>
-                <RowDefinition Height="18"/>
+                <RowDefinition Height="28"/>
             </Grid.RowDefinitions>
-            <StatusBar x:Name="stBar" HorizontalAlignment="Left" Height="27" Margin="0,0,0,-9" Grid.Row="2" VerticalAlignment="Top" Width="571" Background="#FFB6CFC1">
-                <Label x:Name="lblStatus" Content="" Width="198" Height="27"/>
+            <StatusBar x:Name="stBar" HorizontalAlignment="Left" Height="28" Grid.Row="2" VerticalAlignment="Top" Width="506" Background="{StaticResource StatusBarColor}" BorderThickness="2" BorderBrush="#FF828790">
+                <Label x:Name="lblStatus" Content="" Width="198" Height="17"/>
             </StatusBar>
             <Button x:Name="btnAddHost" Content="Add" HorizontalAlignment="Left" Height="32" Margin="0,3,0,0" VerticalAlignment="Top" Width="32" Click="btnAddHost_Click"/>
             <Button x:Name="btnDeleteItem" Content="Delete" HorizontalAlignment="Left" Height="32" Margin="37,3,0,0" VerticalAlignment="Top" Width="32" Click="btnDeleteItem_Click"/>
             <Button x:Name="btnStartStop" Content="StartStop" HorizontalAlignment="Left" Height="32" Margin="144,3,0,0" VerticalAlignment="Top" Width="32" Click="btnStartStop_Click"/>
             <Button x:Name="btnEnabled" Content="Enabled" HorizontalAlignment="Left" Height="32" Margin="181,3,0,0" VerticalAlignment="Top" Width="32" Click="btnEnabled_Click"/>
             <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Height="32" Margin="74,3,0,0" VerticalAlignment="Top" Width="32" Click="btnEdit_Click"/>
-            <TreeView x:Name="trwHosts" ItemsSource="{Binding Source={StaticResource HostList}}"  HorizontalAlignment="Left" Height="283" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="319" />
+            <TreeView x:Name="trwHosts" ItemsSource="{Binding Source={StaticResource HostList}}" Background="{StaticResource WindowColor}" HorizontalAlignment="Left" Height="278" Margin="0,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="506" BorderThickness="2" />
 
         </Grid>
     </Grid>
