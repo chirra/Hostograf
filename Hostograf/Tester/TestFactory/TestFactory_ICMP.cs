@@ -29,9 +29,10 @@ namespace Tester
         /// Constructor
         /// </summary>
         /// <param name="address"></param>
-        public TestFactory_ICMP(Guid id, string address)
+        public TestFactory_ICMP(Guid id, bool enabled, string address)
         {
             Id = id;
+            Enabled = enabled;
             Address = address;
 	    }
 

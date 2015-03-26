@@ -21,16 +21,18 @@ namespace Tester
         /// TCP Port
         /// </summary>
 	    public string Port { get; set; }
-	    
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="address"></param>
-        /// <param name="port"></param>
-        public TestFactory_TCP(Guid id, string address, string port)
+
+	    /// <summary>
+	    /// Constructor
+	    /// </summary>
+	    /// <param name="id"></param>
+	    /// <param name="enabled"></param>
+	    /// <param name="address"></param>
+	    /// <param name="port"></param>
+	    public TestFactory_TCP(Guid id, bool enabled, string address, string port)
         {
             Id = id;
+            Enabled = enabled;
             Address = address;
             Port = port;
         }

@@ -30,10 +30,10 @@ namespace Tester
                     {
                         IList<TestFactory> testCollection = new List<TestFactory>();
                         foreach (var icmpTest in host.Test.OfType<TestICMP>())
-                            testCollection.Add(new TestFactory_ICMP(icmpTest.Id, icmpTest.Address));
+                            testCollection.Add(new TestFactory_ICMP(icmpTest.Id, icmpTest.Enabled, icmpTest.Address));
                         
                         foreach (var tcpTest in host.Test.OfType<TestTCP>())
-                            testCollection.Add(new TestFactory_TCP(tcpTest.Id, tcpTest.Address, tcpTest.Port));
+                            testCollection.Add(new TestFactory_TCP(tcpTest.Id, tcpTest.Enabled, tcpTest.Address, tcpTest.Port));
                         
                         hostlist.Add(new Host(host.Id, host.Description, testCollection, host.Enabled));
                     }

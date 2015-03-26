@@ -78,7 +78,7 @@ namespace PL
             if (icmpTestWindow.ShowDialog() == true)
             {
                 var address = icmpTestWindow.txtAddress.Text;
-                TestFactory test = new TestFactory_ICMP(Guid.NewGuid(), address);
+                TestFactory test = new TestFactory_ICMP(Guid.NewGuid(), true, address);
                 obHost.AddTestElement(test);
                 lstTestCollection.Items.Add(test);
             }
@@ -92,7 +92,7 @@ namespace PL
             {
                 var address = tcpTestWindow.txtAddress.Text;
                 var port = tcpTestWindow.txtPort.Text;
-                TestFactory test = new TestFactory_TCP(Guid.NewGuid(), address, port);
+                TestFactory test = new TestFactory_TCP(Guid.NewGuid(), true, address, port);
                 obHost.AddTestElement(test);
                 lstTestCollection.Items.Add(test);
             }
