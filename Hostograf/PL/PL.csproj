@@ -138,14 +138,21 @@
   <ItemGroup>
     <Resource Include="Images\delete.png" />
     <Resource Include="Images\delete1.png" />
-    <Resource Include="Images\dialog_warning.png" />
+    <Resource Include="Images\warning.png" />
     <Resource Include="Images\folder_orange.png" />
-    <Resource Include="Images\media_playback_pause.png" />
-    <Resource Include="Images\media_playback_start.png" />
+    <Resource Include="Images\pause.png" />
+    <Resource Include="Images\start.png" />
     <Resource Include="Images\messagebox_warning.png" />
     <Resource Include="Images\settings.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\disable.png" />
+    <Resource Include="Images\edit.png" />
+    <Resource Include="Images\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
