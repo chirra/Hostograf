@@ -5,7 +5,10 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics.Eventing.Reader;
+using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net.Mime;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,6 +21,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Hardcodet.Wpf.TaskbarNotification;
 using Tester;
 
 namespace PL
@@ -32,6 +36,7 @@ namespace PL
         private BackgroundWorker backgroundWorker;
         private TrulyObservableCollection<ObservableHost> hosts = new TrulyObservableCollection<ObservableHost>();
         DBController dbController = new DBController();
+        TaskbarIcon notifyIcon = new TaskbarIcon();
         
 
         public MainWindow()
@@ -41,6 +46,14 @@ namespace PL
             hosts.Add(new ObservableHost(h));
          
           InitializeComponent();
+
+          //Note: XAML is suggested for all but the simplest scenarios
+          
+          //tbi.Icon = (Icon)FindResource("ImageDelete");
+          notifyIcon = (TaskbarIcon)FindResource("NotifyIconOk");
+          notifyIcon.Visibility = Visibility.Visible;
+
+
             lblStatus.Content = "I Sleep";
             backgroundWorker = (BackgroundWorker)this.FindResource("backgroundWoker");
             trwHosts.ItemsSource = hosts;
@@ -57,6 +70,7 @@ namespace PL
                 {
                     lock (block)
                     {
+                        bool alertNotifyIcon = false;
                         for (int i=0; i<hosts.Count; i++)
                         {
 
@@ -85,11 +99,26 @@ namespace PL
                                 {
                                     Dispatcher.BeginInvoke(new ThreadStart(delegate { lblStatus.Content = test + ".... Fail"; }));
                                     Dispatcher.BeginInvoke(new ThreadStart(delegate { test.ObservablePass = false; }));
+                                    alertNotifyIcon = true;
                                 }
                                 Thread.Sleep(1000);
                                 Dispatcher.BeginInvoke(new ThreadStart(delegate { test.ObservableCheckedNow = false; }));
                             }
                         }
+                        if (alertNotifyIcon)
+                        {
+                            Dispatcher.BeginInvoke(new ThreadStart(delegate { notifyIcon.Visibility = Visibility.Hidden; }));
+                            Dispatcher.BeginInvoke(new ThreadStart(delegate { notifyIcon = (TaskbarIcon)FindResource("NotifyIconAlert"); }));
+                            Dispatcher.BeginInvoke(new ThreadStart(delegate { notifyIcon.Visibility = Visibility.Visible; }));
+                        }
+                            
+                        else
+                        {
+                            Dispatcher.BeginInvoke(new ThreadStart(delegate { notifyIcon.Visibility = Visibility.Hidden; }));
+                            Dispatcher.BeginInvoke(new ThreadStart(delegate { notifyIcon = (TaskbarIcon)FindResource("NotifyIconOk"); }));
+                            Dispatcher.BeginInvoke(new ThreadStart(delegate { notifyIcon.Visibility = Visibility.Visible; }));
+                        }
+
                     }
                 }
           }
