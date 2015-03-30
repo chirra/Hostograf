@@ -10,6 +10,7 @@
     <SolidColorBrush x:Key="FontColorTreeDisable" Color="#727272"></SolidColorBrush>
     <SolidColorBrush x:Key="FontColorTreeFail" Color="#FF5722"></SolidColorBrush>
     <SolidColorBrush x:Key="BgColorTreeChecked" Color="#5D4037"></SolidColorBrush>
+    <SolidColorBrush x:Key="BorderColor" Color="#FF828790"></SolidColorBrush>
     
     <Image x:Key="ImageStart" Source="Images/start.png"/>
     <Image x:Key="ImagePause" Source="Images/pause.png"/>

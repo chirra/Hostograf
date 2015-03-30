@@ -5,7 +5,7 @@
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=System"
         xmlns:pl="clr-namespace:PL"
         xmlns:objectModel="clr-namespace:System.Collections.ObjectModel;assembly=System"
-        Title="Hostograf" Height="400" Width="530" BorderBrush="#FF5D4037" Foreground="#FF727272">
+        Title="Hostograf" Height="400" Width="530">
 
 
     <Window.Resources>
@@ -82,25 +82,25 @@
     <!--<Grid Background="#FFDAB1B1">-->
     <!--<Grid Background="{StaticResource WindowColor}" Margin="5,5,5,5">-->
 
-    <Grid Background="{StaticResource WindowColor}" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
+    <Grid HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
-            <RowDefinition Height="43"/>
+            <RowDefinition Height="35"/>
             <RowDefinition/>
             <RowDefinition Height="28"/>
         </Grid.RowDefinitions>
 
-        <ToolBar HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="{StaticResource InsideWindowColor}" BorderThickness="2" BorderBrush="#FF828790">
-            <Button x:Name="btnAddHost" Content="{StaticResource ImageAdd}" BorderThickness="1" BorderBrush="#FF828790" HorizontalAlignment="Left" Height="32" Margin="1,1,1,1" VerticalAlignment="Top" Width="32" Click="btnAddHost_Click"/>
-            <Button x:Name="btnDeleteItem" Content="{StaticResource ImageDelete}" BorderThickness="1" BorderBrush="#FF828790" HorizontalAlignment="Left" Height="32" Margin="1,1,1,1" VerticalAlignment="Top" Width="32" Click="btnDeleteItem_Click" RenderTransformOrigin="0.5,0.469"/>
-            <Button x:Name="btnEdit" Content="{StaticResource ImageEdit}" BorderThickness="1" BorderBrush="#FF828790" HorizontalAlignment="Left" Height="32" Margin="1,1,1,1" VerticalAlignment="Top" Width="32" Click="btnEdit_Click"/>
+        <ToolBar HorizontalAlignment="Stretch" VerticalAlignment="Top" BorderThickness="2" BorderBrush="{StaticResource BorderColor}">
+            <Button x:Name="btnStartStop" Content="{StaticResource ImageStart}" BorderThickness="1" BorderBrush="{StaticResource BorderColor}" HorizontalAlignment="Left"  Margin="1,1,1,1" VerticalAlignment="Top" Width="20" Height="20" Click="btnStartStop_Click"/>
             <Separator></Separator>
-            <Button x:Name="btnStartStop" Content="{StaticResource ImageStart}" BorderThickness="1" BorderBrush="#FF828790" HorizontalAlignment="Left" Height="32" Margin="1,1,1,1" VerticalAlignment="Top" Width="32" Click="btnStartStop_Click"/>
-            <Button x:Name="btnEnabled" Content="{StaticResource ImageDisable}" BorderThickness="1" BorderBrush="#FF828790" HorizontalAlignment="Left" Height="32" Margin="1,1,1,1" VerticalAlignment="Top" Width="32" Click="btnEnabled_Click"/>
+            <Button x:Name="btnAddHost" Content="{StaticResource ImageAdd}" BorderThickness="1" BorderBrush="{StaticResource BorderColor}" HorizontalAlignment="Left"  Margin="1,1,1,1" VerticalAlignment="Top" Width="20" Height="20" Click="btnAddHost_Click"/>
+            <Button x:Name="btnEdit" Content="{StaticResource ImageEdit}" BorderThickness="1" BorderBrush="{StaticResource BorderColor}" HorizontalAlignment="Left"  Margin="1,1,1,1" VerticalAlignment="Top" Width="20" Height="20" Click="btnEdit_Click"/>
+            <Button x:Name="btnDeleteItem" Content="{StaticResource ImageDelete}" BorderThickness="1" BorderBrush="{StaticResource BorderColor}" HorizontalAlignment="Left"  Margin="1,1,1,1" VerticalAlignment="Top" Width="20" Height="20" Click="btnDeleteItem_Click" RenderTransformOrigin="0.5,0.469"/>
+            <Button x:Name="btnEnabled" Content="{StaticResource ImageDisable}" BorderThickness="1" BorderBrush="{StaticResource BorderColor}" HorizontalAlignment="Left"  Margin="1,1,1,1" VerticalAlignment="Top" Width="20" Height="20" Click="btnEnabled_Click"/>
         </ToolBar>
         
-        <TreeView x:Name="trwHosts" ItemsSource="{Binding Source={StaticResource HostList}}" Background="{StaticResource WindowColor}" HorizontalAlignment="Stretch" Margin="2,2,2,2" Grid.Row="1" VerticalAlignment="Stretch" BorderThickness="2" />
+        <TreeView x:Name="trwHosts" ItemsSource="{Binding Source={StaticResource HostList}}"  HorizontalAlignment="Stretch" Margin="2,2,2,2" Grid.Row="1" VerticalAlignment="Stretch" BorderThickness="2" />
 
-        <StatusBar x:Name="stBar" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Bottom" Background="{StaticResource StatusBarColor}" BorderThickness="2" Margin="2,2,2,2" Padding="0,0,0,0" BorderBrush="#FF828790">
+        <StatusBar x:Name="stBar" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Bottom"  BorderThickness="2" Margin="2,2,2,2" Padding="0,0,0,0" BorderBrush="{StaticResource BorderColor}">
             <Label x:Name="lblStatus" Content="" Width="200" Padding="0,0,0,0" FontSize="10"/>
         </StatusBar>
 
