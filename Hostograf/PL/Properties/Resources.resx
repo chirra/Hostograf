@@ -121,4 +121,31 @@
   <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="green_hat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\green-hat.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NotifyIconString_Alert" xml:space="preserve">
+    <value>We have a problem on the next hosts:</value>
+  </data>
+  <data name="NotifyIconString_Default" xml:space="preserve">
+    <value>Everything is OK</value>
+  </data>
+  <data name="red_hat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\red-hat.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="santa_cap_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\santa_cap_green.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="santa_cap_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\santa_cap_red.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StatusString_Default" xml:space="preserve">
+    <value>Edit HostList or press Start</value>
+  </data>
+  <data name="StatusString_Fail" xml:space="preserve">
+    <value>.... Fail</value>
+  </data>
+  <data name="StatusString_Pass" xml:space="preserve">
+    <value>.... Pass</value>
+  </data>
 </root>

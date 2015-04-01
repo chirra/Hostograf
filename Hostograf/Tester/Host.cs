@@ -123,7 +123,7 @@ namespace Tester
 
         public override string ToString()
         {
-            return Description + ":" + Enabled;
+            return Description;
         }
 
         

@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:tb="http://www.hardcodet.net/taskbar">
-    
+                    xmlns:tb="http://www.hardcodet.net/taskbar"
+                    xmlns:pl="clr-namespace:PL">
+
     <SolidColorBrush x:Key="WindowColor" Color="#795548"></SolidColorBrush>
     <SolidColorBrush x:Key="StatusBarColor" Color="#795548"></SolidColorBrush>
     <SolidColorBrush x:Key="InsideWindowColor" Color="#795548"></SolidColorBrush>
@@ -11,21 +12,25 @@
     <SolidColorBrush x:Key="FontColorTreeFail" Color="#FF5722"></SolidColorBrush>
     <SolidColorBrush x:Key="BgColorTreeChecked" Color="#5D4037"></SolidColorBrush>
     <SolidColorBrush x:Key="BorderColor" Color="#FF828790"></SolidColorBrush>
-    
+
     <Image x:Key="ImageStart" Source="Images/start.png"/>
     <Image x:Key="ImagePause" Source="Images/pause.png"/>
     <Image x:Key="ImageAdd" Source="Images/add.png"/>
     <Image x:Key="ImageDelete" Source="Images/delete.png"/>
     <Image x:Key="ImageEdit" Source="Images/edit.png"/>
     <Image x:Key="ImageDisable" Source="Images/disable.png"/>
+    <Image x:Key="ImageIconOk" Source="Images/santa_cap_green.ico"/>
 
     <!-- Globally declared notify icon -->
-    <tb:TaskbarIcon x:Key="NotifyIconOk"
-                  IconSource="Images/santa_cap_green.ico"
-                  ToolTipText="Hostograf OK" />
-
-    <tb:TaskbarIcon x:Key="NotifyIconAlert"
-                  IconSource="Images/santa_cap_red.ico"
-                  ToolTipText="Hostograf Alert" />
-
+    <!--<tb:TaskbarIcon x:Key="NotifyIcon">
+        <tb:TaskbarIcon.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header ="Open"></MenuItem>
+                <MenuItem Header ="Close"></MenuItem>
+                <Separator></Separator>
+            </ContextMenu>
+        </tb:TaskbarIcon.ContextMenu>
+    </tb:TaskbarIcon>-->
+    
+ 
 </ResourceDictionary>

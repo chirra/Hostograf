@@ -9,6 +9,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Mime;
+using System.Security.Policy;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -37,7 +38,7 @@ namespace PL
         private TrulyObservableCollection<ObservableHost> hosts = new TrulyObservableCollection<ObservableHost>();
         DBController dbController = new DBController();
         TaskbarIcon notifyIcon = new TaskbarIcon();
-        
+
 
         public MainWindow()
         {
@@ -47,16 +48,14 @@ namespace PL
          
           InitializeComponent();
 
-          //Note: XAML is suggested for all but the simplest scenarios
-          
-          //tbi.Icon = (Icon)FindResource("ImageDelete");
-          notifyIcon = (TaskbarIcon)FindResource("NotifyIconOk");
+          //Uncomment in the future //notifyIcon = (TaskbarIcon)FindResource("NotifyIconOk");
+          notifyIcon.Icon = Properties.Resources.green_hat;
           notifyIcon.Visibility = Visibility.Visible;
+          notifyIcon.ToolTipText = Properties.Resources.NotifyIconString_Default;
 
-
-            lblStatus.Content = "I Sleep";
-            backgroundWorker = (BackgroundWorker)this.FindResource("backgroundWoker");
-            trwHosts.ItemsSource = hosts;
+          lblStatus.Content = Properties.Resources.StatusString_Default;
+          backgroundWorker = (BackgroundWorker)this.FindResource("backgroundWoker");
+          trwHosts.ItemsSource = hosts;
    
        }
 
@@ -64,59 +63,65 @@ namespace PL
        private object block = new object();
        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            BackgroundWorker worker = sender as BackgroundWorker;
-    
-                while (true)
+           BackgroundWorker worker = sender as BackgroundWorker;
+           bool testCountGreaterThanZero = true; //For first iteration must be true
+
+            while (!worker.CancellationPending && testCountGreaterThanZero)
                 {
+                    testCountGreaterThanZero = false;
                     lock (block)
                     {
                         bool alertNotifyIcon = false;
-                        for (int i=0; i<hosts.Count; i++)
-                        {
+                        string errorHosts = Properties.Resources.NotifyIconString_Alert;
 
+                        // Loop by Hosts
+                        for (int i=0; i<hosts.Count && !worker.CancellationPending; i++)
+                        {
                             var host = hosts[i];
                             if (!host.Enabled) continue;
 
-                            for (int j=0; j<host.TestCollection.Count; j++)
+                            #region Loop by tests
+                            for (int j = 0; j < host.TestCollection.Count && !worker.CancellationPending; j++)
                             {
                                 if (!host.TestCollection[j].Enabled) continue;
 
                                 var test = host.ObservableTestCollection[j];
+                                testCountGreaterThanZero = true;
                                 
-                                if (worker.CancellationPending)
-                                    return;
-
                                 Dispatcher.BeginInvoke(new ThreadStart(delegate { test.ObservableCheckedNow = true; }));
 
-                                if (test.Execute())
+                                if (test.Execute()) //Run test
                                 {
                                     Dispatcher.BeginInvoke(
-                                        new ThreadStart(delegate { lblStatus.Content = test + ".... Pass"; }));
+                                        new ThreadStart(delegate { lblStatus.Content = test + Properties.Resources.StatusString_Pass; }));
                                     Dispatcher.BeginInvoke(new ThreadStart(delegate { test.ObservablePass = true; }));
                                 }
 
                                 else
                                 {
-                                    Dispatcher.BeginInvoke(new ThreadStart(delegate { lblStatus.Content = test + ".... Fail"; }));
+                                    Dispatcher.BeginInvoke(new ThreadStart(delegate { lblStatus.Content = test + Properties.Resources.StatusString_Fail; }));
                                     Dispatcher.BeginInvoke(new ThreadStart(delegate { test.ObservablePass = false; }));
                                     alertNotifyIcon = true;
+                                    errorHosts += "\n" + host;
                                 }
+
                                 Thread.Sleep(1000);
                                 Dispatcher.BeginInvoke(new ThreadStart(delegate { test.ObservableCheckedNow = false; }));
                             }
+                            #endregion Loop by tests
                         }
+
+                        
                         if (alertNotifyIcon)
                         {
-                            Dispatcher.BeginInvoke(new ThreadStart(delegate { notifyIcon.Visibility = Visibility.Hidden; }));
-                            Dispatcher.BeginInvoke(new ThreadStart(delegate { notifyIcon = (TaskbarIcon)FindResource("NotifyIconAlert"); }));
-                            Dispatcher.BeginInvoke(new ThreadStart(delegate { notifyIcon.Visibility = Visibility.Visible; }));
+                            Dispatcher.BeginInvoke(new ThreadStart(delegate { notifyIcon.Icon = Properties.Resources.red_hat; ; }));
+                            Dispatcher.BeginInvoke(new ThreadStart(delegate { notifyIcon.ToolTipText = errorHosts; }));    
                         }
                             
                         else
                         {
-                            Dispatcher.BeginInvoke(new ThreadStart(delegate { notifyIcon.Visibility = Visibility.Hidden; }));
-                            Dispatcher.BeginInvoke(new ThreadStart(delegate { notifyIcon = (TaskbarIcon)FindResource("NotifyIconOk"); }));
-                            Dispatcher.BeginInvoke(new ThreadStart(delegate { notifyIcon.Visibility = Visibility.Visible; }));
+                            Dispatcher.BeginInvoke(new ThreadStart(delegate { notifyIcon.Icon = Properties.Resources.green_hat; ; }));
+                            Dispatcher.BeginInvoke(new ThreadStart(delegate { notifyIcon.ToolTipText = Properties.Resources.NotifyIconString_Default; }));
                         }
 
                     }
@@ -126,8 +131,7 @@ namespace PL
 
         private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            lblStatus.Content = "I Sleep";
-            
+            lblStatus.Content = Properties.Resources.StatusString_Default;
         }
 
 
@@ -140,9 +144,12 @@ namespace PL
         private void btnStartStop_Click(object sender, RoutedEventArgs e)
         {
             if (backgroundWorker.IsBusy)
+            {
                 backgroundWorker.CancelAsync();
+                
+            }
             else
-                backgroundWorker.RunWorkerAsync(hosts);
+                backgroundWorker.RunWorkerAsync();
         }
 
 

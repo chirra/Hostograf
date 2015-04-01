@@ -131,7 +131,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tester\Tester.csproj">
@@ -165,6 +167,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\santa_cap_red.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NotifyIconOK.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\green-hat.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\red-hat.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

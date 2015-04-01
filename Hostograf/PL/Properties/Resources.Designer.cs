@@ -69,5 +69,90 @@ namespace PL.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon green_hat {
+            get {
+                object obj = ResourceManager.GetObject("green_hat", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We have a problem on the next hosts:.
+        /// </summary>
+        internal static string NotifyIconString_Alert {
+            get {
+                return ResourceManager.GetString("NotifyIconString_Alert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Everything is OK.
+        /// </summary>
+        internal static string NotifyIconString_Default {
+            get {
+                return ResourceManager.GetString("NotifyIconString_Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon red_hat {
+            get {
+                object obj = ResourceManager.GetObject("red_hat", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon santa_cap_green {
+            get {
+                object obj = ResourceManager.GetObject("santa_cap_green", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon santa_cap_red {
+            get {
+                object obj = ResourceManager.GetObject("santa_cap_red", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit HostList or press Start.
+        /// </summary>
+        internal static string StatusString_Default {
+            get {
+                return ResourceManager.GetString("StatusString_Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .... Fail.
+        /// </summary>
+        internal static string StatusString_Fail {
+            get {
+                return ResourceManager.GetString("StatusString_Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .... Pass.
+        /// </summary>
+        internal static string StatusString_Pass {
+            get {
+                return ResourceManager.GetString("StatusString_Pass", resourceCulture);
+            }
+        }
     }
 }
