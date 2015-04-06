@@ -125,7 +125,7 @@ namespace PL
                         }
 
                     }
-                Thread.Sleep(15000);
+                
                 }
           }
 
@@ -133,6 +133,7 @@ namespace PL
         private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             lblStatus.Content = Properties.Resources.StatusString_Default;
+            btnStartStop.Content = FindResource("ImageStart");
         }
 
 
@@ -144,13 +145,17 @@ namespace PL
 
         private void btnStartStop_Click(object sender, RoutedEventArgs e)
         {
+
             if (backgroundWorker.IsBusy)
             {
                 backgroundWorker.CancelAsync();
-                
+
             }
             else
+            {
+                btnStartStop.Content = FindResource("ImagePause");
                 backgroundWorker.RunWorkerAsync();
+            }
         }
 
 
