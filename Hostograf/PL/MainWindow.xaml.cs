@@ -125,6 +125,7 @@ namespace PL
                         }
 
                     }
+                Thread.Sleep(15000);
                 }
           }
 

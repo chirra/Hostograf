@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,11 +19,17 @@ namespace Tester
 
         public static void ErrorHandlerToFile(object sender, object error)
         {
-            FileInfo f = new FileInfo("hostograf.log");
+            
+         //   IsolatedStorageFile userStorage = IsolatedStorageFile.GetUserStoreForApplication();
+         //   IsolatedStorageFileStream userStream = new IsolatedStorageFileStream("Hostograf.log", FileMode.Append, userStorage);
+
+           // FileInfo f = new FileInfo("hostograf.log");
+            var fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Hostograf.log");
+            FileInfo f = new FileInfo(fileName);
             FileStream fs;
             if (f.Exists)
                 fs = new FileStream(f.FullName, FileMode.Append);
-            else fs = new FileStream(f.FullName, FileMode.Create); 
+            else fs = new FileStream(f.FullName, FileMode.Create);
 
             StreamWriter sw = new StreamWriter(fs, Encoding.GetEncoding(1251));
             sw.WriteLine(DateTime.Now);

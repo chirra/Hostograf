@@ -46,7 +46,7 @@ namespace Tester.Test
         public void RemoveElement_CorrectRemoveTestElement_NullTestCollection()
         {
             //arrange
-            TestFactory test = new TestFactory_ICMP(new Guid(), "some.test.address");
+            TestFactory test = new TestFactory_ICMP(new Guid(), true, "some.test.address");
             Host host = new Host(new Guid(), "TestHost", test);
             
             //act
@@ -63,7 +63,7 @@ namespace Tester.Test
         {
             //arrange
             Host host = new Host(new Guid(), "TestHost");
-            TestFactory test = new TestFactory_ICMP(new Guid(), "some.test.address");
+            TestFactory test = new TestFactory_ICMP(new Guid(), true, "some.test.address");
 
             //act
             host.GetTestCollection().Add(test);
@@ -84,7 +84,7 @@ namespace Tester.Test
             //arrange
 
             Host host = new Host(new Guid(), "TestHost");
-            TestFactory test = new TestFactory_ICMP(new Guid(), "some.test.address");
+            TestFactory test = new TestFactory_ICMP(new Guid(), true, "some.test.address");
             host.OnChangeTestCollection += OnChangeCollection;
             
             //act
@@ -100,8 +100,8 @@ namespace Tester.Test
         public void AddTestRange_OnChangeCollectionEvent_True()
         {
             //arrange
-            TestFactory test1 = new TestFactory_ICMP(new Guid(), "some.test.address");
-            TestFactory test2 = new TestFactory_ICMP(new Guid(), "some.test.address");
+            TestFactory test1 = new TestFactory_ICMP(new Guid(), true, "some.test.address");
+            TestFactory test2 = new TestFactory_ICMP(new Guid(), true, "some.test.address");
             IList<TestFactory> testRange = new List<TestFactory>() { test1, test2 };
             Host host = new Host(new Guid(), "TestHost", testRange);
             host.OnChangeTestCollection += OnChangeCollection;
@@ -120,7 +120,7 @@ namespace Tester.Test
         {
             //arrange
             Host host = new Host(new Guid(), "TestHost");
-            TestFactory test = new TestFactory_ICMP(new Guid(), "some.test.address");
+            TestFactory test = new TestFactory_ICMP(new Guid(), true, "some.test.address");
             host.OnChangeTestCollection += OnChangeCollection;
 
             //act

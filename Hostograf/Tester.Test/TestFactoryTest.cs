@@ -14,7 +14,7 @@ namespace Tester.Test
         public void TestFactoryIcmp_LocalhostExecute_True()
         {
             //arrange
-            TestFactory test = new TestFactory_ICMP(new Guid(), "localhost" );
+            TestFactory test = new TestFactory_ICMP(new Guid(), true, "localhost");
 
             //act
             bool result = test.Execute();
@@ -51,7 +51,7 @@ namespace Tester.Test
         public void TestFactoryIcmp_NonExistHostExecute_OnExecuteErrorEvent()
         {
             //arrange
-            TestFactory test = new TestFactory_ICMP(new Guid(), "non.exist.host");
+            TestFactory test = new TestFactory_ICMP(new Guid(), true, "non.exist.host");
             test.OnExecuteError += onExecuteError;
 
             //act
@@ -67,7 +67,7 @@ namespace Tester.Test
         public void TestFactoryTCP_NonExistHostExecute_OnExecuteErrorEvent()
         {
             //arrange
-            TestFactory test = new TestFactory_TCP(new Guid(), "non.exist.host", "99999");
+            TestFactory test = new TestFactory_TCP(new Guid(), true, "non.exist.host", "99999");
             test.OnExecuteError += onExecuteError;
 
             //act
